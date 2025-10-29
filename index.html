@@ -16,6 +16,33 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
     />
+    <style>
+      .category-alimentation {
+        --ion-color-primary: #4caf50;
+      }
+      .category-transport {
+        --ion-color-primary: #2196f3;
+      }
+      .category-loisirs {
+        --ion-color-primary: #ff9800;
+      }
+      .category-sante {
+        --ion-color-primary: #f44336;
+      }
+      .category-education {
+        --ion-color-primary: #9c27b0;
+      }
+      .category-autres {
+        --ion-color-primary: #607d8b;
+      }
+
+      .category-badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 12px;
+        margin-right: 10px;
+      }
+    </style>
   </head>
   <body>
     <ion-app>
@@ -25,31 +52,61 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Ajouter une dépense</ion-card-title>
-          </ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-md="6" offset-md="3">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Ajouter une dépense</ion-card-title>
+                </ion-card-header>
 
-          <ion-card-content>
-            <ion-input label="Intitulé" type="text"></ion-input>
-            <ion-input label="Montant" type="number"></ion-input>
-            <ion-select label="Catégorie">
-              <ion-select-option value="Alimentation">🍽️ Alimentation</ion-select-option>
-              <ion-select-option value="Transport">🚗 Transport</ion-select-option>
-              <ion-select-option value="Loisirs">🎮 Loisirs</ion-select-option>
-              <ion-select-option value="Santé">⚕️ Santé</ion-select-option>
-              <ion-select-option value="Éducation">📚 Éducation</ion-select-option>
-              <ion-select-option value="Autres">📦 Autres</ion-select-option>
-              
-            
-            </ion-select>
-            <div class="ion-text-end">
-                <ion-button fill="outline" color="success">Ajouter <ion-icon slot="start" name="add-outline"></ion-icon></ion-button>
-                <ion-button fill="outline" color="danger"> <ion-icon slot="end" name="close-outline"></ion-icon>Reinitialiser</ion-button>
-                
-            </div>
-          </ion-card-content>
-        </ion-card>
+                <ion-card-content>
+                  <ion-input label="Intitulé" type="text"></ion-input>
+                  <ion-input label="Montant" type="number"></ion-input>
+                  <ion-select label="Catégorie">
+                    <ion-select-option value="Alimentation"
+                      >🍽️ Alimentation</ion-select-option
+                    >
+                    <ion-select-option value="Transport"
+                      >🚗 Transport</ion-select-option
+                    >
+                    <ion-select-option value="Loisirs"
+                      >🎮 Loisirs</ion-select-option
+                    >
+                    <ion-select-option value="Santé"
+                      >⚕️ Santé</ion-select-option
+                    >
+                    <ion-select-option value="Éducation"
+                      >📚 Éducation</ion-select-option
+                    >
+                    <ion-select-option value="Autres"
+                      >📦 Autres</ion-select-option
+                    >
+                  </ion-select>
+                  <div class="ion-text-end">
+                    <ion-button fill="outline" color="success"
+                      >Ajouter
+                      <ion-icon slot="start" name="add-outline"></ion-icon
+                    ></ion-button>
+                    <ion-button fill="outline" color="danger">
+                      <ion-icon slot="end" name="close-outline"></ion-icon
+                      >Reinitialiser</ion-button
+                    >
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size-md="6" offset-md="3">
+              <ion-list>
+                <ion-item>
+                    
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-content>
     </ion-app>
   </body>
