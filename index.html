@@ -61,34 +61,42 @@
                 </ion-card-header>
 
                 <ion-card-content>
-                  <ion-input label="Intitulé" type="text"></ion-input>
-                  <ion-input label="Montant" type="number"></ion-input>
-                  <ion-select label="Catégorie">
-                    <ion-select-option value="Alimentation"
+                  <ion-input
+                    id="intitule"
+                    label="Intitulé"
+                    type="text"
+                  ></ion-input>
+                  <ion-input
+                    id="montant"
+                    label="Montant"
+                    type="number"
+                  ></ion-input>
+                  <ion-select id="categorie" label="Catégorie">
+                    <ion-select-option value="alimentation"
                       >🍽️ Alimentation</ion-select-option
                     >
-                    <ion-select-option value="Transport"
+                    <ion-select-option value="transport"
                       >🚗 Transport</ion-select-option
                     >
-                    <ion-select-option value="Loisirs"
+                    <ion-select-option value="loisirs"
                       >🎮 Loisirs</ion-select-option
                     >
-                    <ion-select-option value="Santé"
+                    <ion-select-option value="sante"
                       >⚕️ Santé</ion-select-option
                     >
-                    <ion-select-option value="Éducation"
+                    <ion-select-option value="education"
                       >📚 Éducation</ion-select-option
                     >
-                    <ion-select-option value="Autres"
+                    <ion-select-option value="autres"
                       >📦 Autres</ion-select-option
                     >
                   </ion-select>
                   <div class="ion-text-end">
-                    <ion-button fill="outline" color="success"
+                    <ion-button id="btn-add" fill="outline" color="success"
                       >Ajouter
                       <ion-icon slot="start" name="add-outline"></ion-icon
                     ></ion-button>
-                    <ion-button fill="outline" color="danger">
+                    <ion-button id="btn-reset" fill="outline" color="danger">
                       <ion-icon slot="end" name="close-outline"></ion-icon
                       >Reinitialiser</ion-button
                     >
@@ -99,15 +107,20 @@
           </ion-row>
           <ion-row>
             <ion-col size-md="6" offset-md="3">
-              <ion-list>
+              <ion-list id="list-dep">
                 <ion-item>
-                    
+                  <ion-badge color="medium" class="category-badge"
+                    >💼 Aucune dépense
+                  </ion-badge>
+                  <ion-label>Aucune dépense enregistrée</ion-label>
                 </ion-item>
               </ion-list>
             </ion-col>
           </ion-row>
         </ion-grid>
+        <strong>Total des dépenses : <span id="total-dep">.....</span></strong>
       </ion-content>
     </ion-app>
+    <script src="script.js"></script>
   </body>
 </html>
