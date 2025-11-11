@@ -5,6 +5,7 @@ let listeDepenses = document.getElementById("list-dep");
 let spanTotal = document.getElementById("total-dep");
 
 let btnAdd = document.getElementById("btn-add");
+let btnErase = document.getElementById("btn-reset");
 
 let showNoDepenses = true;
 
@@ -36,36 +37,63 @@ btnAdd.addEventListener("click", () => {
   let newIcon = document.createElement("ion-icon");
   newIcon.name = "close-outline";
   newIcon.color = "danger";
-  newIcon.addEventListener("click", showAlert);
 
   let newItem = document.createElement("ion-item");
   newItem.appendChild(newBadge);
   newItem.appendChild(newLabel);
   newItem.appendChild(newIcon);
 
+  newItem.amount = inpMontant.value;
+
+  newIcon.addEventListener("click", () => {
+    showAlert(newItem);
+  });
+
   listeDepenses.appendChild(newItem);
 
   total += +inpMontant.value;
   spanTotal.textContent = `${total}¥`;
+  reinit();
 });
 
-async function showAlert() {
+btnErase.addEventListener("click", reinit);
+
+function reinit() {
+  inpMontant.value = "";
+  inpIntitule.value = "";
+  select.value = "";
+}
+
+async function showAlert(itemToDelete) {
+  console.log(itemToDelete);
+
   const alert = document.createElement("ion-alert");
   alert.header = "Supprimer une dépense";
   alert.message = "Que souhaitez-vous faire ?";
   alert.buttons = [
     {
-      text: "Oui",
+      text: "Supprimer cette dépense",
       handler: () => {
-        console.log("Click sur oui");
+        total -= itemToDelete.amount;
+        spanTotal.textContent = `${total}¥`;
+        listeDepenses.removeChild(itemToDelete);
       },
     },
     {
-      text: "Non",
+      text: "Supprimer toutes les dépenses",
       handler: () => {
-        console.log("Click sur Non");
+        listeDepenses.innerHTML = ` <ion-item>
+                  <ion-badge color="medium" class="category-badge"
+                    >💼 Aucune dépense
+                  </ion-badge>
+                  <ion-label>Aucune dépense enregistrée</ion-label>
+                </ion-item>`;
+        total = 0;
+        spanTotal.textContent = `${total}¥`;
+        showNoDepenses = true;
       },
     },
+    "Annuler",
   ];
 
   document.body.appendChild(alert);
